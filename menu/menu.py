@@ -1,0 +1,21 @@
+class Menu:
+    
+    def mostrar_menu():
+        print("** MENU PRINCIPAL **")
+        print("Ingrese la opcion de lo que desea realizar")
+        print("1.- Registrar empleado")
+        print("2.- Registrar visitante")
+        print("3.- Registrar visita")
+        print("4.- Registrar animal")
+        print("5.- Registrar mantenimientos")
+        print("6.- Modificar datos empleado")
+        print("7.- Modificar datos visitante")
+        print("8.- Modificar datos animal")
+        print("9.- Eliminar empleado")
+        print("10.- Eliminar visitante")
+        print("11.- Eliminar animal")
+        print("12.- Mostrar empleados")
+        print("13.- Mostrar visitantes")
+        print("14.- Mostrar visitas")
+        print("15.- Mostrar animal")
+        print("16.- Mostrar mantenimientos")
