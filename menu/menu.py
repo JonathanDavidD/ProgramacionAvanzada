@@ -1,3 +1,6 @@
+from datetime import datetime
+from empleados.empleado import Empleado
+
 class Menu:
     
     def mostrar_menu(self):
@@ -19,18 +22,34 @@ class Menu:
             print("14.- Mostrar visitas")
             print("15.- Mostrar animal")
             print("16.- Mostrar mantenimientos")
-            opcion= input("Ingrese la opcion de lo que desea realizar: ")
+            print("17.- Salir")
+            opcion = input("Ingrese la opcion de lo que desea realizar: ")
 
 
             if opcion == "1":
-                pass
+                print("\nINGRESE DATOS DEL EMPLEADO")
+                nombre = str(input("Ingrese el nombre del empleado: "))
+                apellido = str(input("Ingrese el apellido del empleado: "))
+                curp = str(input("Ingrese la curp del empleado: "))
+                dia = int(input("Ingrese el dia de nacimiento: "))
+                mes = int(input("Ingrese el mes de nacimeinto: "))
+                anio = int(input("Ingrese el año de nacimiento: "))
+                dia_ingreso = int(input("Ingrese el dia de ingreso al empleo: "))
+                mes_ingreso = int(input("Ingrese el mes de ingreso al empleo: "))
+                anio_ingreso = int(input("Ingrese el año de ingreso al empleo: "))
+                rfc = str(input("Ingrese el rfc del empleado: "))
+                salario = float(input("Ingrese el salario del empleado: "))
+                # horario = str(input("Ingrese el horario de trabajo: "))
+                
+                fecha_nacimiento = datetime(dia,mes,anio)
+                fecha_ingreso = datetime(dia_ingreso,mes_ingreso,anio_ingreso)
+                empleado = Empleado(nombre=nombre,apellido=apellido,curp=curp,fecha_nacimiento=fecha_nacimiento,fecha_ingreso=fecha_ingreso,rfc=rfc,salario=salario)
 
             elif opcion == "2":
                 pass
 
-
             elif opcion == "3":
-                pass
+                pass    
 
 
             elif opcion == "4":
@@ -42,7 +61,7 @@ class Menu:
 
 
             elif opcion == "6":
-                pass
+                print("\nMODIFIQUE LOS DATOS DE UN EMPLEADO\n")
 
 
             elif opcion == "7":
@@ -54,7 +73,7 @@ class Menu:
 
 
             elif opcion == "9":
-                pass
+                print("\nELIMINE UN EMPLEADO\n")
 
 
             elif opcion == "10":
@@ -66,7 +85,7 @@ class Menu:
 
 
             elif opcion == "12":
-                pass
+                print("\n** EMPLEADOS **\n")
 
 
             elif opcion == "13":
@@ -83,4 +102,8 @@ class Menu:
             
             elif opcion == "16":
                 pass
+            
+            elif opcion == "17":
+                print("Hasta luego\n")
+                break
           
