@@ -130,7 +130,7 @@ class Menu:
                 self.zoologico.mostrar_empleados()
 
             elif opcion == "13":
-                pass
+                self.zoologico.mostrar_visitantes()
 
 
             elif opcion == "14":

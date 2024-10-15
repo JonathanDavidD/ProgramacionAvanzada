@@ -63,7 +63,7 @@ class Zoologico():
             return 
         print("\nNo se encontró el empleado con el id: ",id)
         
-    def eliminar_visitante(self):
+    def eliminar_visitante(self, id: str):
         for visitante in self.lista_visitantes:
             if visitante.id == id:
                 self.lista_visitantes.remove(visitante)
