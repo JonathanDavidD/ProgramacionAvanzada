@@ -12,9 +12,10 @@ class Visitante(Usuario):
     #lista_visita: str
     #fecha_de_visitas:datetime
     rol: Rol
+    numero_visitas: int
 
 
-    def __init__(self, id: str, nombre: str, fecha_nacimiento: datetime,apellido: str,curp: str, fecha_de_registro: datetime, ano:str, dia:str, mes:str):
+    def __init__(self, id: str, nombre: str, fecha_nacimiento: datetime,apellido: str,curp: str, fecha_de_registro: datetime, ano:str, dia:str, mes:str,numero_visitas: int):
         super().__init__(nombre=nombre, apellido=apellido,id=id, curp=curp, fecha_nacimiento=fecha_nacimiento, rol=Rol)
         #self.lista_visitas=lista_visitas
         self.fecha_nacimiento=fecha_nacimiento
@@ -27,13 +28,14 @@ class Visitante(Usuario):
         self.dia=dia
         self.ano=ano
         self.id=id
-        #self.rol=rol 
-
+        #self.rol=rol
     
     def mostrar_info_visitante(self):
         nombre_completo = f"{self.nombre}{self.apellido}"
         info = f"Nombre completo: {nombre_completo}, Curp: {self.curp}, Fecha de nacimiento: {self.fecha_nacimiento}, Fecha de registro: {self.fecha_de_registro}"
         return info
     
-
+    def sumar_numero_visitas(self,numero_visitas):
+        numero_visitas += 1
+        return numero_visitas
 

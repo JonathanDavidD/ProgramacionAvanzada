@@ -105,11 +105,11 @@ class Zoologico():
     def generar_id_animal(self):
         pass
 
-    def generar_fecha_de_visita(self, visita:Visita):
+    def generar_fecha_de_visita(self, id: str, visita:Visita):
         for visitante in self.lista_visitantes:
             if visitante.id == id:
                 self.lista_visita.append(visita)
-                self.numero_visitas += 1
+                visitante.sumar_numero_visitas()
 
 
                 print("\nSe registró correctamente")
