@@ -1,5 +1,6 @@
 from datetime import datetime
 from empleados.empleado import Empleado
+from animales.animales import Animal
 
 class Menu:
     
@@ -53,7 +54,26 @@ class Menu:
 
 
             elif opcion == "4":
-                pass
+                print("INGRESE DATOS DEL ANIMAL A REGISTRAR")
+                tipo=str(input("Ingrese el tipo de animal: "))
+                dia_llegada=int(input("Ingrese el dia de llegada: "))
+                mes_llegada=int(input("Ingrese el mes de llegada: "))
+                anio_llegada=int(input("Ingrese el año de llegada: "))
+                enfermedades=str(input("Ingrese las enfermedades del animal: "))
+                tipo_alimentacion=str(input("Ingrese el tipo de alimentacion: "))
+                dia_nacimiento=int(input("Ingrese el dia de nacimiento: "))
+                mes_nacimiento=int(input("Ingrese el mes de nacimineto"))
+                anio_nacimiento=int(input("Ingrese el año de nacimiento: "))
+                peso=float(input("Ingrese el peso del animal"))
+                frecuencia_alimentacion=str(input("Ingrese la frecuencia de alimentacion: "))
+                vacunas=bool(input("Tiene vacunas el animal"))
+
+
+                
+                fecha_nacimiento=datetime(anio_nacimiento, mes_nacimiento, dia_nacimiento)
+                fecha_llegada=datetime(anio_llegada, mes_llegada, dia_llegada)
+                animal=Animal(tipo=tipo, fecha_llegada=fecha_llegada, enfermedades=enfermedades, tipo_alimentacion=tipo_alimentacion, fecha_nacimiento=fecha_nacimiento, peso=peso, frecuencia_alimentacion=frecuencia_alimentacion, vacunas=vacunas)
+                
 
 
             elif opcion == "5":
