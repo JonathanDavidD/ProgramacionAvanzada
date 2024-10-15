@@ -1,8 +1,11 @@
 from datetime import datetime
+from zoologico.zoologico import Zoologico
 from empleados.empleado import Empleado
 
+
 class Menu:
-    
+    zoologico = Zoologico()
+        
     def mostrar_menu(self):
         while True:
             print("** MENU PRINCIPAL **")
@@ -39,12 +42,14 @@ class Menu:
                 anio_ingreso = int(input("Ingrese el año de ingreso al empleo: "))
                 rfc = str(input("Ingrese el rfc del empleado: "))
                 salario = float(input("Ingrese el salario del empleado: "))
+                id = self.zoologico.generar_id_empleados(apellido=apellido,rfc=rfc)
                 # horario = str(input("Ingrese el horario de trabajo: "))
                 
                 fecha_nacimiento = datetime(dia,mes,anio)
                 fecha_ingreso = datetime(dia_ingreso,mes_ingreso,anio_ingreso)
-                empleado = Empleado(nombre=nombre,apellido=apellido,curp=curp,fecha_nacimiento=fecha_nacimiento,fecha_ingreso=fecha_ingreso,rfc=rfc,salario=salario)
-
+                empleado = Empleado(nombre=nombre,apellido=apellido,id=id,curp=curp,fecha_nacimiento=fecha_nacimiento,fecha_ingreso=fecha_ingreso,rfc=rfc,salario=salario)
+                self.zoologico.registrar_empleado(empleado=empleado)
+                
             elif opcion == "2":
                 pass
 
@@ -74,7 +79,8 @@ class Menu:
 
             elif opcion == "9":
                 print("\nELIMINE UN EMPLEADO\n")
-
+                id = str(input("Coloque el ID del empleado que desea eliminar: "))
+                self.zoologico.eliminar_empleado(id=id)
 
             elif opcion == "10":
                 pass
@@ -85,8 +91,7 @@ class Menu:
 
 
             elif opcion == "12":
-                print("\n** EMPLEADOS **\n")
-
+                self.zoologico.mostrar_empleados()
 
             elif opcion == "13":
                 pass
