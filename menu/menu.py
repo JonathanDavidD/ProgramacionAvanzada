@@ -1,7 +1,10 @@
 from datetime import datetime
 from empleados.empleado import Empleado
+from visitantes.visitantes import Visitante
+from zoologico.zoologico import Zoologico
 
 class Menu:
+    zoologico= Zoologico()
     
     def mostrar_menu(self):
         while True:
@@ -46,7 +49,29 @@ class Menu:
                 empleado = Empleado(nombre=nombre,apellido=apellido,curp=curp,fecha_nacimiento=fecha_nacimiento,fecha_ingreso=fecha_ingreso,rfc=rfc,salario=salario)
 
             elif opcion == "2":
-                pass
+                print("\nINGRESE DATOS DEL VISITANTE")
+                nombre = input("Ingresa NOMBRE(S) del visitante -> ")
+                apellido1 = input("Ingresa PRIMER APELLIDO del visitante -> ")
+                apellido2 = input("Ingresa SEGUNDO APELLIDO del visitante -> ")
+                curp = input("Ingresa CURP del visitante -> ")
+                ano = int(input("Ingresa AÑO DE NACIMIENTO del visitante -> "))
+                mes = int(input("Ingresa MES DE NACIMIENTO del visitante -> "))
+                dia = int(input("Ingresa DIA DE NACIMIENTO del visitante -> "))
+                fecha_nacimiento = datetime(ano, mes, dia)
+                id_visitante = self.zoologico.generar_id_visitantes(apellido1=apellido1, apellido2=apellido2)
+
+                if ano < 2006:
+
+                    Adulto=Visitante(nombre=nombre, apellido1=apellido1, apellido2=apellido2, curp=curp, ano=ano, mes=mes, dia=dia, id_visitante=id_visitante, fecha_de_visitas=fecha )
+                    self.zoologico.registrar_visitante_adulto(Adulto)
+
+                
+                else:
+
+                    Nino=Visitante(nombre=nombre, apellido1=apellido1, apellido2=apellido2, curp=curp, ano=ano, mes=mes, dia=dia,id_visitante=id_visitante)
+                    self.zoologico.registrar_visitante_nino(Nino)
+
+
 
             elif opcion == "3":
                 pass    
