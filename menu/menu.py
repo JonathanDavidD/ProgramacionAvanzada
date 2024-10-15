@@ -67,6 +67,10 @@ class Menu:
                 dia_registro = int(input("Ingresa DIA DE REGISTRO del visitante -> "))
                 fecha_de_registro = datetime(ano_registro, mes_registro, dia_registro)
                 id = self.zoologico.generar_id_visitantes(apellido=apellido)
+                print(id)
+
+                
+                
                 
                 #fecha_de_visitas=self.zoologico.listar_visita()
                 #numero_visitas=self.zoologico.generar_fecha_de_visita(visita=visita)
@@ -119,7 +123,9 @@ class Menu:
                 self.zoologico.eliminar_empleado(id=id)
 
             elif opcion == "10":
-                pass
+                print("\nELIMINE UN VISITANTE\n")
+                id = str(input("Coloque el ID del VISITANTE que desea eliminar: "))
+                self.zoologico.eliminar_visitante(id=id)
 
 
             elif opcion == "11":

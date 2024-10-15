@@ -100,7 +100,9 @@ class Zoologico():
         primer_letra = apellido[:2].upper()
         aleatorio = randint(200, 6000)
         id_visitante= f"M-{primer_letra}{aleatorio}"
+        
         return id_visitante
+    
     
     def generar_id_animal(self):
         pass

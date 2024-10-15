@@ -15,7 +15,7 @@ class Visitante(Usuario):
     numero_visitas: int
 
 
-    def __init__(self, id: str, nombre: str, fecha_nacimiento: datetime,apellido: str,curp: str, fecha_de_registro: datetime, ano:str, dia:str, mes:str,numero_visitas: int):
+    def __init__(self, id: str, nombre: str, fecha_nacimiento: datetime,apellido: str,curp: str, fecha_de_registro: datetime, ano:str, dia:str, mes:str):
         super().__init__(nombre=nombre, apellido=apellido,id=id, curp=curp, fecha_nacimiento=fecha_nacimiento, rol=Rol)
         #self.lista_visitas=lista_visitas
         self.fecha_nacimiento=fecha_nacimiento
