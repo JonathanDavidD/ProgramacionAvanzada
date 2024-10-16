@@ -5,7 +5,6 @@ class Rol(Enum):
     VETERINARIO = "Veterinario"
     GUIA = "Guia"
     MANTENIMIENTO = "Mantenimiento"
-    ADMINISTRACION = "Administracion"
     VISITANTE = "Visitante"
     ADULTO = "Adulto"
     NINO = "Nino"

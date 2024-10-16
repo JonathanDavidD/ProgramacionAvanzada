@@ -2,34 +2,34 @@ from typing import List
 from datetime import datetime
 from random import randint
 from visitantes.visitantes import Visitante
-from empleados.empleado import Empleado
+from veterinarios.veterinario import Veterinario
+from guias.guia import Guia
 from animales.animales import Animal
 from visitas.visita import Visita
 
 
 
+
 class Zoologico():
-    lista_empleados: List[Empleado] = []
+    lista_veterinarios: List[Veterinario] = []
+    lista_guias: List[Guia] = []
     lista_visitantes: List[Visitante] = []
     lista_visitantes_adulto: List[Visitante] = []
     lista_visitantes_nino: List[Visitante] = []
     lista_animales : List[Animal] = []
     lista_visita: List[Visita]=[]
     
-    
-    ##def __init__(self):
-        #Esto para que es?
-        ##self.lista_visitantes: List[Visitante]
-        ##self.lista_empleados: List[Empleado]
-
     def registrar_visitante(self, visitante: Visitante):
         self.lista_visitantes.append(visitante)
-        print("\nSe registro correctamente")
+        print("\nSe registro correctamente\n")
 
-
-    def registrar_empleado(self, empleado: Empleado):
-        self.lista_empleados.append(empleado)
-        print("\nSe registro correctamente")
+    def registrar_veterinario(self, veterinario: Veterinario):
+        self.lista_veterinarios.append(veterinario)
+        print("\nSe registro correctamente\n")
+    
+    def registrar_guia(self, guia: Guia):
+        self.lista_guias.append(guia)
+        print("\nSe registro correctamente\n")
 
     def registrar_visitante_adulto(self, Adulto: Visitante):
         self.lista_visitantes.append(Adulto)
@@ -47,36 +47,55 @@ class Zoologico():
 
     def registrar_animal(self):
         pass
+    
     def registrar_mantenimiento(self):
         pass
+    
     def modificar_datos_empleado(self):
         pass
+    
     def modificar_datos_visitante(self):
         pass
+    
     def modificar_datos_animal(self):
         pass
-    def eliminar_empleado(self, id: str):
-        for empleado in self.lista_empleados:
-            if empleado.id == id:
-                self.lista_empleados.remove(empleado)
-                print("\nSe eliminó correctamente")
+    
+    def eliminar_veterinario(self, id_veterinario: str):
+        for veterinario in self.lista_veterinarios:
+            if veterinario.id == id_veterinario:
+                self.lista_veterinarios.remove(veterinario)
+                print("\nSe eliminó correctamente\n")
             return 
-        print("\nNo se encontró el empleado con el id: ",id)
+        print("\nNo se encontró el veterinario con el id: ",id_veterinario)
+    
+    def eliminar_guia(self, id_guia: str):
+        for guia in self.lista_guias:
+            if guia.id == id_guia:
+                self.lista_guias.remove(guia)
+                print("\nSe eliminó correctamente\n")
+            return 
+        print("\nNo se encontró el guia con el id: ",id_guia)
         
     def eliminar_visitante(self, id: str):
         for visitante in self.lista_visitantes:
             if visitante.id == id:
                 self.lista_visitantes.remove(visitante)
-                print("\nSe eliminó correctamente")
+                print("\nSe eliminó correctamente\n")
             return 
         print("\nNo se encontró el empleado con el id: ",id)
 
     def eliminar_animal(self):
         pass
-    def mostrar_empleados(self):
-        print("** EMPLEADOS **\n")
-        for empleado in self.lista_empleados:
-            print(empleado.mostrar_info_empleado())
+    
+    def mostrar_veterinarios(self):
+        print("** VETERINARIOS **\n")
+        for veterinario in self.lista_veterinarios:
+            print(veterinario.mostrar_info_veterinario())
+    
+    def mostrar_guias(self):
+        print("** GUIAS **\n")
+        for guia in self.lista_guias:
+            print(guia.mostrar_info_guia())
             
     def mostrar_visitantes(self):
         print("** VISITANTES **\n")
@@ -99,7 +118,7 @@ class Zoologico():
     def generar_id_visitantes(self, apellido:str):
         primer_letra = apellido[:2].upper()
         aleatorio = randint(200, 6000)
-        id_visitante= f"M-{primer_letra}{aleatorio}"
+        id_visitante = f"M-{primer_letra}{aleatorio}"
         
         return id_visitante
     
@@ -114,7 +133,7 @@ class Zoologico():
                 visitante.sumar_numero_visitas()
 
 
-                print("\nSe registró correctamente")
+                print("\nSe registró correctamente\n")
             return 
         print("\nNo se encontró el empleado con el id: ",id)
 

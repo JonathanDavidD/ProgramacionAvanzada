@@ -4,11 +4,7 @@ from usuario.usuario import Usuario
 
 
 class Visitante(Usuario):
-    ano:str
-    dia:str
-    mes:str
     fecha_de_registro: datetime
-    id:str
     #lista_visita: str
     #fecha_de_visitas:datetime
     rol: Rol
@@ -27,12 +23,12 @@ class Visitante(Usuario):
         self.mes=mes
         self.dia=dia
         self.ano=ano
-        self.id=id
+
         #self.rol=rol
     
     def mostrar_info_visitante(self):
         nombre_completo = f"{self.nombre}{self.apellido}"
-        info = f"Nombre completo: {nombre_completo}, Curp: {self.curp}, Fecha de nacimiento: {self.fecha_nacimiento}, Fecha de registro: {self.fecha_de_registro}"
+        info = f"Nombre completo: {nombre_completo},ID: {self.id},Curp: {self.curp}, Fecha de nacimiento: {self.fecha_nacimiento}, Fecha de registro: {self.fecha_de_registro}"
         return info
     
     def sumar_numero_visitas(self,numero_visitas):
