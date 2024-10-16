@@ -25,11 +25,14 @@ class Zoologico():
 
     def registrar_veterinario(self, veterinario: Veterinario):
         self.lista_veterinarios.append(veterinario)
-        print("\nSe registro correctamente\n")
+        print("\nSe registro correctamente")
+        print("ID generado: ",veterinario.id, "\n")
+
     
     def registrar_guia(self, guia: Guia):
         self.lista_guias.append(guia)
         print("\nSe registro correctamente\n")
+        print("ID generado: ", guia.id,"\n")
 
     def registrar_visitante_adulto(self, Adulto: Visitante):
         self.lista_visitantes.append(Adulto)
@@ -54,8 +57,21 @@ class Zoologico():
     def registrar_mantenimiento(self):
         pass
     
-    def modificar_datos_empleado(self):
-        pass
+    def modificar_datos_veterinario(self, id_veterinario: str):
+        for veterinario in self.lista_veterinarios:
+            if veterinario.id == id_veterinario:
+                self.lista_veterinarios.remove(veterinario)
+                veterinario_nuevo = veterinario.modificar_info(id_veterinario=id_veterinario)
+                self.lista_veterinarios.append(veterinario_nuevo)
+                print("\nSe modifico la informacion correctamente\n")
+    
+    def modificar_datos_guia(self,id_guia: str):
+        for guia in self.lista_guias:
+            if guia.id == id_guia:
+                self.lista_guias.remove(guia)
+                guia_nuevo = guia.modificar_info(id_guia=id_guia)
+                self.lista_guias.append(guia_nuevo)
+                print("\nSe modifico la informacion correctamente\n")
     
     def modificar_datos_visitante(self):
         pass

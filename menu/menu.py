@@ -145,9 +145,13 @@ class Menu:
 
             elif opcion == "7":
                 print("\nMODIFIQUE LOS DATOS DE UN VETERINARIO\n")
+                id_veterinario = input("Ingrese el ID del veterinario que desea modificar la informacion: ")
+                self.zoologico.modificar_datos_veterinario(id_veterinario=id_veterinario)
             
             elif opcion == "8":
                 print("\nMODIFIQUE LOS DATOS DE UN GUIA\n")
+                id_guia = input("Ingrese el ID del guia que desea modificar la informacion: ")
+                self.zoologico.modificar_datos_guia(id_guia=id_guia)
 
 
             elif opcion == "9":

@@ -27,8 +27,8 @@ class Visitante(Usuario):
         #self.rol=rol
     
     def mostrar_info_visitante(self):
-        nombre_completo = f"{self.nombre}{self.apellido}"
-        info = f"Nombre completo: {nombre_completo},ID: {self.id},Curp: {self.curp}, Fecha de nacimiento: {self.fecha_nacimiento}, Fecha de registro: {self.fecha_de_registro}"
+        nombre_completo = f"{self.nombre} {self.apellido}"
+        info = f"Nombre completo: {nombre_completo}\n-ID: {self.id}\n-Curp: {self.curp}\n-Fecha de nacimiento: {self.fecha_nacimiento}\n-Fecha de registro: {self.fecha_de_registro}\n"
         return info
     
     def sumar_numero_visitas(self,numero_visitas):
