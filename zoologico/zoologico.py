@@ -135,11 +135,11 @@ class Zoologico():
     def generar_id_animal(self):
         pass
 
-    def registrar_visitante_a_visita(self, id):
+    def registrar_visitante_a_visita(self, id_vt:str, id_v_a:str):
         for visitante in self.lista_visitantes:
-            if visitante.id == id:
+            if visitante.id == id_v_a:
                 for visita in self.lista_visita:
-                    if visita.id == id:
+                    if visita.id == id_vt:
                         self.lista_visita.append(visitante)
                         visita.ingresar_visitantes(visitante=visitante)
 

@@ -9,6 +9,7 @@ from visitas.visita import Visita
 
 class Menu:
     zoologico = Zoologico()
+    
         
     def mostrar_menu(self):
         while True:
@@ -33,7 +34,8 @@ class Menu:
             print("18.- Mostrar visitas")
             print("19.- Mostrar animal")
             print("20.- Mostrar mantenimientos")
-            print("21.- Salir")
+            print("21.- Agregar visitante a visita")
+            print("22.- Salir")
             opcion = input("Ingrese la opcion de lo que desea realizar: ")
 
 
@@ -127,13 +129,10 @@ class Menu:
                 id=self.zoologico.generar_id_visita()
                 print(id)
                 
-
-
-
                 visita=Visita(fecha_visita=fecha_visita, guia_a_cargo=guia_a_cargo,id_visitante=id_visitante, id=id )
 
-
-                self.zoologico.registrar_visita(visita)    
+                self.zoologico.registrar_visita(visita)
+                    
 
 
             elif opcion == "5":
@@ -201,6 +200,12 @@ class Menu:
                 pass
             
             elif opcion == "21":
+                id_v_a= input("Ingresa id del visitante")
+                id_vt= input("Ingresa el id de la visita")
+
+                self.visita.ingresar_visitantes(id_v_a=id_v_a, id_vt=id_vt)
+
+          
+            elif opcion == "22":
                 print("Hasta luego\n")
                 break
-          
