@@ -34,16 +34,19 @@ class Zoologico():
     def registrar_visitante_adulto(self, Adulto: Visitante):
         self.lista_visitantes.append(Adulto)
         self.lista_visitantes_adulto.append(Adulto)
+        print("\nSe registro correctamente\n")
 
     def registrar_visitante_nino(self, Nino: Visitante):
         self.lista_visitantes.append(Nino)
         self.lista_visitantes_nino.append(Nino)
+        print("\nSe registro correctamente\n")
 
     #def registrar_empleado(self, empleado: Empleados):
         #self.lista_empleados.append(empleado)
 
     def registrar_visita(self, visita:Visita):
         self.lista_visita.append(visita)
+        print("\nSe registro correctamente\n")
 
     def registrar_animal(self):
         pass
@@ -122,21 +125,34 @@ class Zoologico():
         
         return id_visitante
     
+    def generar_id_visita(self ):
+        
+        aleatorio = randint(200, 6000)
+        id_visita = f"V-{aleatorio}"
+        
+        return id_visita
     
     def generar_id_animal(self):
         pass
 
-    def generar_fecha_de_visita(self, id: str, visita:Visita):
+    def registrar_visitante_a_visita(self, id):
         for visitante in self.lista_visitantes:
             if visitante.id == id:
-                self.lista_visita.append(visita)
-                visitante.sumar_numero_visitas()
+                for visita in self.lista_visita:
+                    if visita.id == id:
+                        self.lista_visita.append(visitante)
+                        visita.ingresar_visitantes(visitante=visitante)
 
+                        visitante.sumar_numero_visitas()
 
                 print("\nSe registró correctamente\n")
             return 
         print("\nNo se encontró el empleado con el id: ",id)
 
-    def listar_visita(self):
-        for visita in self.lista_visita:
-            print(visita.mostrar_visita())
+    # def listar_visita(self):
+    #     for visita in self.lista_visita:
+    #         print("FECHA: ")
+    #         print(visita.mostrar_visita())
+
+    #         print()
+

@@ -116,11 +116,23 @@ class Menu:
 
 
             elif opcion == "4":
-                dia_v=input("Ingrese dia de la visita")
-                mes_v=input("Ingrese mes de la visita")
-                ano_v=input("Ingrese año de la visita")
-                fecha_visita = datetime(dia_v,mes_v,ano_v)
-                visita=Visita(fecha_visita)
+
+                
+                dia_v=int(input("Ingrese dia de la visita"))
+                mes_v=int(input("Ingrese mes de la visita"))
+                ano_v=int(input("Ingrese año de la visita"))
+                fecha_visita = datetime(ano_v, mes_v, dia_v)
+                id_visitante = input("Ingresa el id del visitante")
+                guia_a_cargo=input("Ingrese el id del guia a cargo")
+                id=self.zoologico.generar_id_visita()
+                print(id)
+                
+
+
+
+                visita=Visita(fecha_visita=fecha_visita, guia_a_cargo=guia_a_cargo,id_visitante=id_visitante, id=id )
+
+
                 self.zoologico.registrar_visita(visita)    
 
 
