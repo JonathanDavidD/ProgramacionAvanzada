@@ -32,9 +32,9 @@ class Zoologico():
         print("\nSe registro correctamente\n")
         print("ID generado: ", guia.id,"\n")
 
-    def registrar_visitante_adulto(self, Adulto: Visitante):
-        self.lista_visitantes.append(Adulto)
-        self.lista_visitantes_adulto.append(Adulto)
+    def registrar_visitante_adulto(self, adulto: Visitante):
+        self.lista_visitantes.append(adulto)
+        self.lista_visitantes_adulto.append(adulto)
         print("\nSe registro correctamente\n")
 
     def registrar_visitante_nino(self, Nino: Visitante):
@@ -104,17 +104,17 @@ class Zoologico():
         pass
     
     def mostrar_veterinarios(self):
-        print("** VETERINARIOS **\n")
+        print("\n** VETERINARIOS **\n")
         for veterinario in self.lista_veterinarios:
             print(veterinario.mostrar_info_veterinario())
     
     def mostrar_guias(self):
-        print("** GUIAS **\n")
+        print("\n** GUIAS **\n")
         for guia in self.lista_guias:
             print(guia.mostrar_info_guia())
             
     def mostrar_visitantes(self):
-        print("** VISITANTES **\n")
+        print("\n** VISITANTES **\n")
         for visitante in self.lista_visitantes:
             print(visitante.mostrar_info_visitante())
         

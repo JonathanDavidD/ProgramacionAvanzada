@@ -98,23 +98,17 @@ class Menu:
                 id = self.zoologico.generar_id_visitantes(apellido=apellido)
                 print(id)
 
-                
-                
+                visitante = Visitante(nombre=nombre, apellido=apellido, curp=curp, id=id, fecha_nacimiento=fecha_nacimiento, fecha_de_registro= fecha_de_registro, ano=ano)
                 
                 #fecha_de_visitas=self.zoologico.listar_visita()
                 #numero_visitas=self.zoologico.generar_fecha_de_visita(visita=visita)
 
-
                 if ano < 2006:
-
-                    Adulto=Visitante(nombre=nombre, apellido=apellido, curp=curp, ano=ano, mes=mes, dia=dia, id=id, fecha_nacimiento=fecha_nacimiento, fecha_de_registro=fecha_de_registro)
-                    self.zoologico.registrar_visitante_adulto(Adulto)
-
-                
+                    adulto = visitante
+                    self.zoologico.registrar_visitante_adulto(adulto= adulto)
                 else:
-
-                    Nino=Visitante(nombre=nombre, apellido=apellido, curp=curp, ano=ano, mes=mes, dia=dia, id=id, fecha_nacimiento=fecha_nacimiento, fecha_de_registro=fecha_de_registro)
-                    self.zoologico.registrar_visitante_nino(Nino)
+                    nino = visitante
+                    self.zoologico.registrar_visitante_nino(Nino=nino)
 
 
 
