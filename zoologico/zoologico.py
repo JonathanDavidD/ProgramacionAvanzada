@@ -6,9 +6,7 @@ from veterinarios.veterinario import Veterinario
 from guias.guia import Guia
 from animales.animales import Animal
 from visitas.visita import Visita
-
-
-
+from mantenimientos.mantenimiento import Mantenimiento
 
 class Zoologico():
     lista_veterinarios: List[Veterinario] = []
@@ -18,6 +16,7 @@ class Zoologico():
     lista_visitantes_nino: List[Visitante] = []
     lista_animales : List[Animal] = []
     lista_visita: List[Visita]=[]
+    lista_mantenimientos: List[Mantenimiento] = []
     
     def registrar_visitante(self, visitante: Visitante):
         self.lista_visitantes.append(visitante)
@@ -27,7 +26,6 @@ class Zoologico():
         self.lista_veterinarios.append(veterinario)
         print("\nSe registro correctamente")
         print("ID generado: ",veterinario.id, "\n")
-
     
     def registrar_guia(self, guia: Guia):
         self.lista_guias.append(guia)
@@ -44,9 +42,6 @@ class Zoologico():
         self.lista_visitantes_nino.append(Nino)
         print("\nSe registro correctamente\n")
 
-    #def registrar_empleado(self, empleado: Empleados):
-        #self.lista_empleados.append(empleado)
-
     def registrar_visita(self, visita:Visita):
         self.lista_visita.append(visita)
         print("\nSe registro correctamente\n")
@@ -54,8 +49,10 @@ class Zoologico():
     def registrar_animal(self):
         pass
     
-    def registrar_mantenimiento(self):
-        pass
+    def registrar_mantenimiento(self, mantenimiento: Mantenimiento):
+        self.lista_mantenimientos.append(mantenimiento)
+        print("\nSe registro correctamente\n")
+
     
     def modificar_datos_veterinario(self, id_veterinario: str):
         for veterinario in self.lista_veterinarios:
@@ -123,10 +120,14 @@ class Zoologico():
         
     def mostrar_animal(self):
         pass
+    
     def mostrar_visitas(self):
         pass
+    
     def mostrar_mantenimiento(self):
-        pass
+        print("\n** MANTENIMIENTOS **\n")
+        for mantenimiento in self.lista_mantenimientos:
+            print(mantenimiento.mostrar_info_mantenimiento())
         
     def generar_id_empleado(self,apellido: str,rfc: str ):
         primeros_digitos = apellido[0:2].upper()

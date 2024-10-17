@@ -5,6 +5,7 @@ from guias.guia import Guia
 from visitantes.visitantes import Visitante
 from zoologico.zoologico import Zoologico
 from visitas.visita import Visita
+from mantenimientos.mantenimiento import Mantenimiento
 
 
 class Menu:
@@ -140,7 +141,18 @@ class Menu:
 
 
             elif opcion == "6":
-                pass
+                print("\nREGISTRE ALGUN MANTENIMIENTO\n")
+                #empleado_encargado
+                proceso_realizado = input("Ingrese el proceso que se llevo a cabo: ")
+                observaciones = input("Ingrese algunas observaciones que se tienen que tomar en cuenta en el mantenimiento: ")
+                id_animal = input("Ingrese el ID de un animal: ")
+                dia_proceso = int(input("Ingrese el dia en el que se realizo el mantenimiento: "))
+                mes_proceso = int(input("Ingrese el mes en el que se realizo el mantenimiento: "))
+                anio_proceso = int(input("Ingrese el año en el que se realizo el mantenimiento: "))
+                fecha_proceso = datetime(anio_proceso, mes_proceso, dia_proceso)
+                
+                mantenimiento = Mantenimiento(proceso_realizado=proceso_realizado,observaciones=observaciones,id_animal=id_animal,fecha_proceso=fecha_proceso)
+                self.zoologico.registrar_mantenimiento(mantenimiento)
 
 
             elif opcion == "7":
@@ -201,7 +213,7 @@ class Menu:
 
             
             elif opcion == "20":
-                pass
+                self.zoologico.mostrar_mantenimiento()
             
             elif opcion == "21":
                 id_v_a= input("Ingresa id del visitante")
