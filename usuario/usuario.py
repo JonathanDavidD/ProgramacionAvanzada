@@ -9,7 +9,7 @@ class Usuario:
     fecha_nacimiento: datetime
     rol: Rol
     
-    def __init__(self,nombre: str,apellido: str,id: str, curp: str,fecha_nacimiento: datetime,rol: Rol):
+    def __init__(self,nombre: str,apellido: str,id: str, curp: str,fecha_nacimiento: datetime, rol: Rol):
         self.nombre = nombre
         self.apellido = apellido
         self.id = id
