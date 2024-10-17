@@ -7,3 +7,6 @@ class Rol(Enum):
     MANTENIMIENTO = "Mantenimiento"
     ADMINISTRACION = "Administracion"
     VISITANTE = "Visitante"
+    ADULTO = "Adulto"
+    NINO = "Nino"
+    

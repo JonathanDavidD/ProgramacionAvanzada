@@ -1,9 +1,14 @@
 from datetime import datetime
+from zoologico.zoologico import Zoologico
 from empleados.empleado import Empleado
-from animales.animales import Animal
+from visitantes.visitantes import Visitante
+from zoologico.zoologico import Zoologico
+from visitas.visita import Visita
+
 
 class Menu:
-    
+    zoologico = Zoologico()
+        
     def mostrar_menu(self):
         while True:
             print("** MENU PRINCIPAL **")
@@ -40,17 +45,52 @@ class Menu:
                 anio_ingreso = int(input("Ingrese el año de ingreso al empleo: "))
                 rfc = str(input("Ingrese el rfc del empleado: "))
                 salario = float(input("Ingrese el salario del empleado: "))
+                id = self.zoologico.generar_id_empleado(apellido=apellido,rfc=rfc)
                 # horario = str(input("Ingrese el horario de trabajo: "))
                 
-                fecha_nacimiento = datetime(dia,mes,anio)
-                fecha_ingreso = datetime(dia_ingreso,mes_ingreso,anio_ingreso)
-                empleado = Empleado(nombre=nombre,apellido=apellido,curp=curp,fecha_nacimiento=fecha_nacimiento,fecha_ingreso=fecha_ingreso,rfc=rfc,salario=salario)
-
+                fecha_nacimiento = datetime(anio, mes, dia)
+                fecha_ingreso = datetime(anio_ingreso,mes_ingreso,dia_ingreso)
+                empleado = Empleado(nombre=nombre,apellido=apellido,id=id,curp=curp,fecha_nacimiento=fecha_nacimiento,fecha_ingreso=fecha_ingreso,rfc=rfc,salario=salario)
+                self.zoologico.registrar_empleado(empleado=empleado)
+                
             elif opcion == "2":
-                pass
+                print("\nINGRESE DATOS DEL VISITANTE")
+                nombre = input("Ingresa NOMBRE(S) del visitante -> ")
+                apellido = input("Ingresa PRIMER APELLIDO del visitante -> ")
+                curp = input("Ingresa CURP del visitante -> ")
+                ano = int(input("Ingresa AÑO DE NACIMIENTO del visitante -> "))
+                mes = int(input("Ingresa MES DE NACIMIENTO del visitante -> "))
+                dia = int(input("Ingresa DIA DE NACIMIENTO del visitante -> "))
+                fecha_nacimiento = datetime(ano, mes, dia)
+                ano_registro = int(input("Ingresa AÑO DE REGISTRO del visitante -> "))
+                mes_registro = int(input("Ingresa MES DE REGISTRO del visitante -> "))
+                dia_registro = int(input("Ingresa DIA DE REGISTRO del visitante -> "))
+                fecha_de_registro = datetime(ano_registro, mes_registro, dia_registro)
+                id = self.zoologico.generar_id_visitantes(apellido=apellido)
+                
+                #fecha_de_visitas=self.zoologico.listar_visita()
+                #numero_visitas=self.zoologico.generar_fecha_de_visita(visita=visita)
+
+
+                if ano < 2006:
+
+                    Adulto=Visitante(nombre=nombre, apellido=apellido, curp=curp, ano=ano, mes=mes, dia=dia, id=id, fecha_nacimiento=fecha_nacimiento, fecha_de_registro=fecha_de_registro)
+                    self.zoologico.registrar_visitante_adulto(Adulto)
+
+                
+                else:
+
+                    Nino=Visitante(nombre=nombre, apellido=apellido, curp=curp, ano=ano, mes=mes, dia=dia, id=id, fecha_nacimiento=fecha_nacimiento, fecha_de_registro=fecha_de_registro)
+                    self.zoologico.registrar_visitante_nino(Nino)
+
+
 
             elif opcion == "3":
-                pass    
+                dia_v=input("Ingrese dia de la visita")
+                mes_v=input("Ingrese mes de la visita")
+                ano_v=input("Ingrese año de la visita")
+                visita=Visita(dia_v=dia_v, mes_v=mes_v,ano_v=ano_v)
+                self.zoologico.registrar_visita(visita)    
 
 
             elif opcion == "4":
@@ -94,7 +134,8 @@ class Menu:
 
             elif opcion == "9":
                 print("\nELIMINE UN EMPLEADO\n")
-
+                id = str(input("Coloque el ID del empleado que desea eliminar: "))
+                self.zoologico.eliminar_empleado(id=id)
 
             elif opcion == "10":
                 pass
@@ -105,8 +146,7 @@ class Menu:
 
 
             elif opcion == "12":
-                print("\n** EMPLEADOS **\n")
-
+                self.zoologico.mostrar_empleados()
 
             elif opcion == "13":
                 pass
