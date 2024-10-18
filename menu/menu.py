@@ -26,24 +26,26 @@ class Menu:
             print("6.- Registrar animal")
             print("7.- Registrar mantenimientos")
             
-            print("8.- Modificar datos empleado")
-            print("9.- Modificar datos visitante")
-            print("10.- Modificar datos animal")
+            print("8.- Modificar datos empleado guia")
+            print("9.- Modificar datos empleado veterinario")
+            print("10.- Modificar datos empleado mantenimiento")
+            print("11.- Modificar datos visitante")
+            print("12.- Modificar datos animal")
             
-            print("11.- Eliminar empleado guia")
-            print("12.- Eliminar empleado veterinario")
-            print("13.- Eliminar empleado mantenimiento")
-            print("14.- Eliminar visitante")
-            print("15.- Eliminar animal")
+            print("13.- Eliminar empleado guia")
+            print("14.- Eliminar empleado veterinario")
+            print("15.- Eliminar empleado mantenimiento")
+            print("16.- Eliminar visitante")
+            print("17.- Eliminar animal")
             
-            print("16.- Mostrar empleados")
-            print("17.- Mostrar visitantes")
-            print("18.- Mostrar visitas")
-            print("19.- Mostrar animal")
-            print("20.- Mostrar mantenimientos")
+            print("18.- Mostrar empleados")
+            print("19.- Mostrar visitantes")
+            print("20.- Mostrar visitas")
+            print("21.- Mostrar animal")
+            print("22.- Mostrar mantenimientos")
             
-            print("21.- Agregar visitante a visita")
-            print("22.- Salir")
+            print("23.- Agregar visitante a visita")
+            print("24.- Salir")
             opcion = input("\nIngrese la opcion de lo que desea realizar: ")
 
             if opcion == "1":
@@ -190,67 +192,77 @@ class Menu:
                 self.zoologico.registrar_mantenimiento(mantenimiento)
 
             elif opcion == "8":
-                print("\nMODIFICAR EMPLEADO\n")
+                print("\nMODIFICAR GUIA\n")
                 id_empleado = input("Ingrese el ID del empleado que desea modificar la informacion: ")
-                self.zoologico.modificar_datos_empleado(id_empleado= id_empleado)
+                self.zoologico.modificar_datos_guia(id_empleado= id_empleado)
+                
+            elif opcion == "9":
+                print("\nMODIFICAR GUIA\n")
+                id_empleado = input("Ingrese el ID del empleado que desea modificar la informacion: ")
+                self.zoologico.modificar_datos_veterinario(id_empleado= id_empleado)
+                
+            elif opcion == "10":
+                print("\nMODIFICAR GUIA\n")
+                id_empleado = input("Ingrese el ID del empleado que desea modificar la informacion: ")
+                self.zoologico.modificar_datos_empleado_mantenimiento(id_empleado= id_empleado)
             
-            elif opcion == "9": #MODIFICAR DATOS DE VISITANTE
+            elif opcion == "11": #MODIFICAR DATOS DE VISITANTE
                  print("\nMODIFICAR VISITANTE\n")
                  id_visitante = input("Ingrese el ID del visitante que desea modificar la informacion: ")
                  self.zoologico.modificar_datos_visitante(id_visitante= id_visitante)
 
-            elif opcion == "10":
+            elif opcion == "12":
                 print("MODIFICAR ANIMAL")
                 id_animal=input("Ingrese el ID del animal: ")
                 self.zoologico.modificar_datos_animal(id_animal=id_animal)
 
-            elif opcion == "11":
+            elif opcion == "13":
                 print("\nELIMINE UN GUIA\n")
                 id_empleado = str(input("Coloque el ID del empleado que desea eliminar: "))
                 self.zoologico.eliminar_guia(id_empleado= id_empleado)
                 
-            elif opcion == "12":
+            elif opcion == "14":
                 print("\nELIMINE UN VETERINARIO\n")
                 id_empleado = str(input("Coloque el ID del empleado que desea eliminar: "))
                 self.zoologico.eliminar_veterinario(id_empleado= id_empleado)
                 
-            elif opcion == "13":
+            elif opcion == "15":
                 print("\nELIMINE UN EMPLEADO DE MANTENIMIENTO\n")
                 id_empleado = str(input("Coloque el ID del empleado que desea eliminar: "))
                 self.zoologico.eliminar_empleado_mantenimiento(id_empleado= id_empleado)
             
-            elif opcion == "14":
+            elif opcion == "16":
                 print("\nELIMINE UN VISITANTE\n")
                 id = str(input("Coloque el ID del VISITANTE que desea eliminar: "))
                 self.zoologico.eliminar_visitante(id=id)
 
-            elif opcion == "15":
+            elif opcion == "17":
                 print("ELIMINAR UN ANIMAL")
                 id_animal=str(input("Ingrese el ID del animal a eliminar: "))
                 self.zoologico.eliminar_animal(id_animal=id_animal)                
 
-            elif opcion == "16":
+            elif opcion == "18":
                 self.zoologico.mostrar_empleados()
             
-            elif opcion == "17":
+            elif opcion == "19":
                 self.zoologico.mostrar_visitantes()
 
-            elif opcion == "18": #MOSTRAR VISITAS
+            elif opcion == "20": #MOSTRAR VISITAS
                 self.zoologico.mostrar_visitas()
 
 
-            elif opcion == "19":
+            elif opcion == "21":
                 self.zoologico.mostrar_animal()
 
-            elif opcion == "20":
+            elif opcion == "22":
                 self.zoologico.mostrar_mantenimiento()
             
-            elif opcion == "21":
+            elif opcion == "23":
                 id_v_a= input("Ingresa id del visitante")
                 id_vt= input("Ingresa el id de la visita")
 
                 self.zoologico.registrar_visitante_a_visita(id_v_a=id_v_a, id_vt=id_vt)
 
-            elif opcion == "22":
+            elif opcion == "24":
                 print("Hasta luego\n")
                 break

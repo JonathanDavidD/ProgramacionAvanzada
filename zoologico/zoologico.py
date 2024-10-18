@@ -73,13 +73,38 @@ class Zoologico():
         print("\nNo existe el empleado de mantenimiento o el animal")
 
         
-    def modificar_datos_empleado(self, id_empleado: str):
+    def modificar_datos_guia(self, id_empleado: str):
         for empleado in self.lista_empleados:
-            if empleado.id == id_empleado:
-                self.lista_empleados.remove(empleado)
-                empleado_nuevo = empleado.modificar_info(id_empleado = id_empleado)
-                self.lista_empleados.append(empleado_nuevo)
-                print("\nSe modifico la informacion correctamente\n")
+            for empleado in self.lista_guias:
+                if empleado.id == id_empleado:
+                    self.lista_empleados.remove(empleado)
+                    self.lista_guias.remove(empleado)
+                    guia_nuevo = empleado.modificar_info(id_empleado = id_empleado)
+                    self.lista_empleados.append(guia_nuevo)
+                    self.lista_guias.append(guia_nuevo)
+                    print("\nSe modifico la informacion correctamente\n")
+                
+    def modificar_datos_veterinario(self, id_empleado: str):
+        for empleado in self.lista_empleados:
+            for empleado in self.lista_veterinarios:
+                if empleado.id == id_empleado:
+                    self.lista_empleados.remove(empleado)
+                    self.lista_veterinarios.remove(empleado)
+                    veterinario_nuevo = empleado.modificar_info(id_empleado = id_empleado)
+                    self.lista_empleados.append(veterinario_nuevo)
+                    self.lista_veterinarios.append(veterinario_nuevo)
+                    print("\nSe modifico la informacion correctamente\n")
+                
+    def modificar_datos_empleado_mantenimiento(self, id_empleado: str):
+        for empleado in self.lista_empleados:
+            for empleado in self.lista_empleado_mantenimiento:
+                if empleado.id == id_empleado:
+                    self.lista_empleados.remove(empleado)
+                    self.lista_empleado_mantenimiento.remove(empleado)
+                    empleado_mantenimiento_nuevo = empleado.modificar_info(id_empleado = id_empleado)
+                    self.lista_empleados.append(empleado_mantenimiento_nuevo)
+                    self.lista_empleado_mantenimiento.append(empleado_mantenimiento_nuevo)
+                    print("\nSe modifico la informacion correctamente\n")
 
     def modificar_datos_visitante(self,id_visitante: str):
         for visitantes in self.lista_visitantes:
