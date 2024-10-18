@@ -6,13 +6,13 @@ class Empleado(Usuario):
     fecha_ingreso: datetime
     rfc: str
     salario: float
-    
-    def __init__(self,nombre: str, apellido: str,id: str, curp: str, fecha_nacimiento: datetime, fecha_ingreso: datetime, rfc: str, salario: float):
-        super().__init__(nombre=nombre,apellido=apellido,id=id,curp=curp,fecha_nacimiento=fecha_nacimiento)
+    horario: str
+    def __init__(self,nombre: str, apellido: str,id: str, curp: str, fecha_nacimiento: datetime, fecha_ingreso: datetime, rfc: str, salario: float,horario: str, rol):
+        super().__init__(nombre=nombre,apellido=apellido,id=id,curp=curp,fecha_nacimiento=fecha_nacimiento, rol=rol)
         self.fecha_ingreso = fecha_ingreso
         self.rfc = rfc
         self.salario = salario
-       
+        self.horario = horario
         
     def mostrar_info_empleado(self):
         nombre_completo = f"{self.nombre} {self.apellido}"

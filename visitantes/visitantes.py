@@ -38,7 +38,7 @@ class Visitante(Usuario):
         numero_visitas += 1
         return numero_visitas
     
-    def modificar_info_visitante(self, id_visitante):
+    def modificar_info_visitante(self, id_visitante: str):
         print("\nINGRESE DATOS DEL VISITANTE")
         nombre = input("Ingresa NOMBRE(S) del visitante -> ")
         apellido = input("Ingresa PRIMER APELLIDO del visitante -> ")

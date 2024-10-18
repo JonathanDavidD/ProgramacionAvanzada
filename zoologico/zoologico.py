@@ -1,14 +1,19 @@
 from typing import List
-from datetime import datetime
 from random import randint
 from visitantes.visitantes import Visitante
 from empleados.empleados import Empleado
+from veterinarios.veterinario import Veterinario
+from guias.guia import Guia
+from mantenimiento.mantenimiento import Mantenimiento
 from animales.animales import Animal
 from visitas.visita import Visita
-from mantenimientos.mantenimiento import Mantenimiento
+from reparaciones.reparaciones import Reparaciones
 
 class Zoologico():
     lista_empleados: List[Empleado] = []
+    lista_guias: List[Guia]= []
+    lista_veterinarios: List[Veterinario] = []
+    lista_empleado_mantenimiento: List[Mantenimiento] = []
     lista_visitantes: List[Visitante] = []
     lista_visitantes_adulto: List[Visitante] = []
     lista_visitantes_nino: List[Visitante] = []
@@ -20,10 +25,23 @@ class Zoologico():
         self.lista_visitantes.append(visitante)
         print("\nSe registro correctamente\n")
 
-    def registrar_empleado(self, empleado: Empleado):
-        self.lista_empleados.append(empleado)
+    def registrar_guia(self, guia: Guia):
+        self.lista_empleados.append(guia)
+        self.lista_guias.append(guia)
         print("\nSe registro correctamente")
-        print("ID generado: ",empleado.id, "\n")
+        print("ID generado: ",guia.id, "\n")
+
+    def registrar_veterinario(self, veterinario: Veterinario):
+        self.lista_empleados.append(veterinario)
+        self.lista_veterinarios.append(veterinario)
+        print("\nSe registro correctamente")
+        print("ID generado: ",veterinario.id, "\n")
+
+    def registrar_empleado_mantenimiento(self, empleado_mantenimiento: Mantenimiento):
+        self.lista_empleados.append(empleado_mantenimiento)
+        self.lista_empleado_mantenimiento.append(empleado_mantenimiento)
+        print("\nSe registro correctamente")
+        print("ID generado: ",empleado_mantenimiento.id, "\n")
     
     def registrar_visitante_adulto(self, adulto: Visitante):
         self.lista_visitantes.append(adulto)
@@ -41,12 +59,19 @@ class Zoologico():
 
     def registrar_animal(self, animal:Animal):
         self.lista_animales.append(animal)
-        print("Se registro correctamente")
-        
-    def registrar_mantenimiento(self, mantenimiento: Mantenimiento):
-        self.lista_mantenimientos.append(mantenimiento)
         print("\nSe registro correctamente\n")
+        print("ID generado: ",animal.id_animal, "\n")
 
+    def registrar_mantenimiento(self, mantenimiento: Reparaciones):
+        for id_mantenimiento in self.lista_empleado_mantenimiento:
+            for id_Animal in self.lista_animales:
+                if id_mantenimiento.id == mantenimiento.empleado_encargado and id_Animal.id_animal == mantenimiento.id_animal:
+                        self.lista_mantenimientos.append(mantenimiento)
+                        print("\nSe registro correctamente\n")     
+                        return   
+        print("\nNo existe el empleado de mantenimiento o el animal")
+
+        
     def modificar_datos_empleado(self, id_empleado: str):
         for empleado in self.lista_empleados:
             if empleado.id == id_empleado:
@@ -55,7 +80,7 @@ class Zoologico():
                 self.lista_empleados.append(empleado_nuevo)
                 print("\nSe modifico la informacion correctamente\n")
 
-    def modificar_datos_visitante(self):
+    def modificar_datos_visitante(self,id_visitante: str):
         for visitantes in self.lista_visitantes:
             if visitantes.id == id_visitante:
                 self.lista_visitantes.remove(visitantes)
@@ -71,9 +96,28 @@ class Zoologico():
                 self.lista_animales.append(animal_nuevo)
                 print("Se modificaron los datos")
     
-    def eliminar_empleado(self, id_empleado: str):
+    def eliminar_guia(self, id_empleado: str):
         for empleado in self.lista_empleados:
             if empleado.id == id_empleado:
+                self.lista_guias.remove(empleado)
+                self.lista_empleados.remove(empleado)
+                print("\nSe eliminó correctamente\n")
+            return 
+        print("\nNo se encontró el empleado con el id: ",id_empleado)
+        
+    def eliminar_veterinario(self, id_empleado: str):
+        for empleado in self.lista_empleados:
+            if empleado.id == id_empleado:
+                self.lista_veterinarios.remove(empleado)
+                self.lista_empleados.remove(empleado)
+                print("\nSe eliminó correctamente\n")
+            return 
+        print("\nNo se encontró el empleado con el id: ",id_empleado)
+        
+    def eliminar_empleado_mantenimiento(self, id_empleado: str):
+        for empleado in self.lista_empleados:
+            if empleado.id == id_empleado:
+                self.lista_empleado_mantenimiento.remove(empleado)
                 self.lista_empleados.remove(empleado)
                 print("\nSe eliminó correctamente\n")
             return 
@@ -94,13 +138,12 @@ class Zoologico():
                 print("Se elimino el animal")
                 return
         print("No se encontro el animal con el ID dado")
-
-    
+        
     def mostrar_empleados(self):
         print("\n** EMPLEADOS **\n")
         for empleado in self.lista_empleados:
             print(empleado.mostrar_info_empleado())
-            
+       
     def mostrar_visitantes(self):
         print("\n** VISITANTES **\n")
         for visitante in self.lista_visitantes:

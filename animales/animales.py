@@ -12,9 +12,9 @@ class Animal:
     frecuencia_alimentacion: str
     vacunas: bool
 
-    def __init__(self, tipo:str,id_animal:str, fecha_llegada:datetime, enfermedades:str, tipo_alimentacion: str, fecha_nacimiento:datetime, peso:int, frecuencia_alimentacion: str, vacunas:bool):
+    def __init__(self, tipo:str, id_animal: str, fecha_llegada:datetime, enfermedades:str, tipo_alimentacion: str, fecha_nacimiento:datetime, peso:int, frecuencia_alimentacion: str, vacunas:bool):
         self.tipo=tipo
-        self.id_animal=id_animal
+        self.id_animal = id_animal
         self.fecha_llegada=fecha_llegada
         self.enfermedades=enfermedades
         self.tipo_alimentacion=tipo_alimentacion
@@ -47,7 +47,7 @@ class Animal:
             fecha_llegada=datetime(anio_ingreso, mes_ingreso, dia_ingreso)
             fecha_de_nacimiento=datetime(anio, mes, dia)
 
-            animal_nuevo=Animal(tipo=tipo,fecha_llegada=fecha_llegada, enfermedades=enfermedades, tipo_alimentacion=tipo_alimentacion, fecha_nacimiento=fecha_de_nacimiento, peso=peso, frecuencia_alimentacion=frecuencia_alimentacion, vacunas=vacunas)
+            animal_nuevo=Animal(tipo=tipo,id_animal=id_animal,fecha_llegada=fecha_llegada, enfermedades=enfermedades, tipo_alimentacion=tipo_alimentacion, fecha_nacimiento=fecha_de_nacimiento, peso=peso, frecuencia_alimentacion=frecuencia_alimentacion, vacunas=vacunas)
             return animal_nuevo
         
 
