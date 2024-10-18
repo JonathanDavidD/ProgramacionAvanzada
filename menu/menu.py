@@ -141,7 +141,7 @@ class Menu:
             
             elif opcion == "7": #MODIFICAR DATOS DE VISITANTE
                  print("\nMODIFICAR VISITANTE\n")
-                 id_visitante = input("Ingrese el ID del empleado que desea modificar la informacion: ")
+                 id_visitante = input("Ingrese el ID del visitante que desea modificar la informacion: ")
                  self.zoologico.modificar_datos_visitante(id_visitante= id_visitante)
 
             elif opcion == "8":
