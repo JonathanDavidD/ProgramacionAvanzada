@@ -27,6 +27,7 @@ class Visita:
     
     def ingresar_visitantes(self, visitante):
         self.visitante_v.append(visitante)
+        
 
 
     

@@ -56,7 +56,12 @@ class Zoologico():
                 print("\nSe modifico la informacion correctamente\n")
 
     def modificar_datos_visitante(self):
-        pass
+        for visitantes in self.lista_visitantes:
+            if visitantes.id == id_visitante:
+                self.lista_visitantes.remove(visitantes)
+                visitante_nuevo = visitantes.modificar_info(id_empleado = id_visitante)
+                self.lista_visitantes.append(visitante_nuevo)
+                print("\nSe modifico la informacion correctamente\n")
     
     def modificar_datos_animal(self, id_animal:str):
         for animal in self.lista_animales:

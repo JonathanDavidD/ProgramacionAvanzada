@@ -37,3 +37,22 @@ class Visitante(Usuario):
     def sumar_numero_visitas(self,numero_visitas):
         numero_visitas += 1
         return numero_visitas
+    
+    def modificar_info_visitante(self, id_visitante):
+        print("\nINGRESE DATOS DEL VISITANTE")
+        nombre = input("Ingresa NOMBRE(S) del visitante -> ")
+        apellido = input("Ingresa PRIMER APELLIDO del visitante -> ")
+        curp = input("Ingresa CURP del visitante -> ")
+        ano = int(input("Ingresa AÑO DE NACIMIENTO del visitante -> "))
+        mes = int(input("Ingresa MES DE NACIMIENTO del visitante -> "))
+        dia = int(input("Ingresa DIA DE NACIMIENTO del visitante -> "))
+        fecha_nacimiento = datetime(ano, mes, dia)
+        ano_registro = int(input("Ingresa AÑO DE REGISTRO del visitante -> "))
+        mes_registro = int(input("Ingresa MES DE REGISTRO del visitante -> "))
+        dia_registro = int(input("Ingresa DIA DE REGISTRO del visitante -> "))
+        fecha_de_registro = datetime(ano_registro, mes_registro, dia_registro)
+        id = self.zoologico.generar_id_visitantes(apellido=apellido)
+        print(id)
+        
+        visitante_nuevo = Visitante(nombre=nombre, apellido=apellido, curp=curp, id=id, fecha_nacimiento=fecha_nacimiento, fecha_de_registro= fecha_de_registro, ano=ano)
+        return visitante_nuevo

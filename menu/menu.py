@@ -140,7 +140,9 @@ class Menu:
                 self.zoologico.modificar_datos_empleado(id_empleado= id_empleado)
             
             elif opcion == "7": #MODIFICAR DATOS DE VISITANTE
-                pass
+                 print("\nMODIFICAR VISITANTE\n")
+                 id_visitante = input("Ingrese el ID del empleado que desea modificar la informacion: ")
+                 self.zoologico.modificar_datos_visitante(id_visitante= id_visitante)
 
             elif opcion == "8":
                 print("MODIFICAR ANIMAL")
@@ -169,7 +171,7 @@ class Menu:
                 self.zoologico.mostrar_visitantes()
 
             elif opcion == "14": #MOSTRAR VISITAS
-                pass
+                self.zoologico.mostrar_visitas()
 
             elif opcion == "15":
                 self.zoologico.mostrar_animal()
