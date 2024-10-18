@@ -1,13 +1,11 @@
 from datetime import datetime
 from zoologico.zoologico import Zoologico
-from veterinarios.veterinario import Veterinario
-from guias.guia import Guia
+from empleados.empleados import Empleado
 from visitantes.visitantes import Visitante
 from zoologico.zoologico import Zoologico
 from visitas.visita import Visita
 from mantenimientos.mantenimiento import Mantenimiento
 from animales.animales import Animal
-
 
 class Menu:
     zoologico = Zoologico()
@@ -16,33 +14,28 @@ class Menu:
     def mostrar_menu(self):
         while True:
             print("** MENU PRINCIPAL **")
-            print("1.- Registrar veterinario")
-            print("2.- Registrar guia")
-            print("3.- Registrar visitante")
-            print("4.- Registrar visita")
-            print("5.- Registrar animal")
-            print("6.- Registrar mantenimientos")
-            print("7.- Modificar datos veterinario")
-            print("8.- Modificar datos guia")
-            print("9.- Modificar datos visitante")
-            print("10.- Modificar datos animal")
-            print("11.- Eliminar veterinario")
-            print("12.- Eliminar guia")
-            print("13.- Eliminar visitante")
-            print("14.- Eliminar animal")
-            print("15.- Mostrar veterinario")
-            print("16.- Mostrar guia")
-            print("17.- Mostrar visitantes")
-            print("18.- Mostrar visitas")
-            print("19.- Mostrar animal")
-            print("20.- Mostrar mantenimientos")
-            print("21.- Agregar visitante a visita")
-            print("22.- Salir")
+            print("1.- Registrar empleado")
+            print("2.- Registrar visitante")
+            print("3.- Registrar visita")
+            print("4.- Registrar animal")
+            print("5.- Registrar mantenimientos")
+            print("6.- Modificar datos empleado")
+            print("7.- Modificar datos visitante")
+            print("8.- Modificar datos animal")
+            print("9.- Eliminar empleado")
+            print("10.- Eliminar visitante")
+            print("11.- Eliminar animal")
+            print("12.- Mostrar empleado")
+            print("13.- Mostrar visitantes")
+            print("14.- Mostrar visitas")
+            print("15.- Mostrar animal")
+            print("16.- Mostrar mantenimientos")
+            print("17.- Agregar visitante a visita")
+            print("18.- Salir")
             opcion = input("Ingrese la opcion de lo que desea realizar: ")
 
-
             if opcion == "1":
-                print("\nINGRESE DATOS DEL VETERINARIO")
+                print("\nINGRESE DATOS DEL EMPLEADO")
                 nombre = str(input("Ingrese el nombre del empleado: "))
                 apellido = str(input("Ingrese el apellido del empleado: "))
                 curp = str(input("Ingrese la curp del empleado: "))
@@ -59,31 +52,10 @@ class Menu:
                 
                 fecha_nacimiento = datetime(anio, mes, dia)
                 fecha_ingreso = datetime(anio_ingreso,mes_ingreso,dia_ingreso)
-                veterinario = Veterinario(nombre=nombre,apellido=apellido,id=id,curp=curp,fecha_nacimiento=fecha_nacimiento,fecha_ingreso=fecha_ingreso,rfc=rfc,salario=salario)
-                self.zoologico.registrar_veterinario(veterinario=veterinario)
+                empleado = Empleado(nombre=nombre,apellido=apellido,id=id,curp=curp,fecha_nacimiento=fecha_nacimiento,fecha_ingreso=fecha_ingreso,rfc=rfc,salario=salario)
+                self.zoologico.registrar_empleado(empleado=empleado)
                 
-            if opcion == "2":
-                print("\nINGRESE DATOS DEL GUIA")
-                nombre = str(input("Ingrese el nombre del empleado: "))
-                apellido = str(input("Ingrese el apellido del empleado: "))
-                curp = str(input("Ingrese la curp del empleado: "))
-                dia = int(input("Ingrese el dia de nacimiento: "))
-                mes = int(input("Ingrese el mes de nacimeinto: "))
-                anio = int(input("Ingrese el año de nacimiento: "))
-                dia_ingreso = int(input("Ingrese el dia de ingreso al empleo: "))
-                mes_ingreso = int(input("Ingrese el mes de ingreso al empleo: "))
-                anio_ingreso = int(input("Ingrese el año de ingreso al empleo: "))
-                rfc = str(input("Ingrese el rfc del empleado: "))
-                salario = float(input("Ingrese el salario del empleado: "))
-                id = self.zoologico.generar_id_empleado(apellido=apellido,rfc=rfc)
-                # horario = str(input("Ingrese el horario de trabajo: "))
-                
-                fecha_nacimiento = datetime(anio, mes, dia)
-                fecha_ingreso = datetime(anio_ingreso,mes_ingreso,dia_ingreso)
-                guia = Guia(nombre=nombre,apellido=apellido,id=id,curp=curp,fecha_nacimiento=fecha_nacimiento,fecha_ingreso=fecha_ingreso,rfc=rfc,salario=salario)
-                self.zoologico.registrar_guia(guia=guia)
-                
-            elif opcion == "3":
+            elif opcion == "2":
                 print("\nINGRESE DATOS DEL VISITANTE")
                 nombre = input("Ingresa NOMBRE(S) del visitante -> ")
                 apellido = input("Ingresa PRIMER APELLIDO del visitante -> ")
@@ -111,9 +83,7 @@ class Menu:
                     nino = visitante
                     self.zoologico.registrar_visitante_nino(Nino=nino)
 
-
-
-            elif opcion == "4":
+            elif opcion == "3":
 
                 
                 dia_v=int(input("Ingrese dia de la visita"))
@@ -129,9 +99,8 @@ class Menu:
 
                 self.zoologico.registrar_visita(visita)
                     
-
-
-            elif opcion == "5":
+            elif opcion == "4":
+                print("\nINGRESE DATOS DEL ANIMAL")
                 tipo=str(input("Ingrese el tipo de animal: "))
                 dia_ingreso=int(input("Ingrese del dia de llegada: "))
                 mes_ingreso=int(input("Ingrese del mes de llegada: "))
@@ -151,10 +120,7 @@ class Menu:
                 animal=Animal(tipo=tipo,fecha_llegada=fecha_llegada, enfermedades=enfermedades, tipo_alimentacion=tipo_alimentacion, fecha_nacimiento=fecha_de_nacimiento, peso=peso, frecuencia_alimentacion=frecuencia_alimentacion, vacunas=vacunas)
                 self.zoologico.registrar_animal(animal)
 
-                
-
-
-            elif opcion == "6":
+            elif opcion == "5":
                 print("\nREGISTRE ALGUN MANTENIMIENTO\n")
                 #empleado_encargado
                 proceso_realizado = input("Ingrese el proceso que se llevo a cabo: ")
@@ -168,78 +134,55 @@ class Menu:
                 mantenimiento = Mantenimiento(proceso_realizado=proceso_realizado,observaciones=observaciones,id_animal=id_animal,fecha_proceso=fecha_proceso)
                 self.zoologico.registrar_mantenimiento(mantenimiento)
 
-
-            elif opcion == "7":
-                print("\nMODIFIQUE LOS DATOS DE UN VETERINARIO\n")
-                id_veterinario = input("Ingrese el ID del veterinario que desea modificar la informacion: ")
-                self.zoologico.modificar_datos_veterinario(id_veterinario=id_veterinario)
+            elif opcion == "6":
+                print("\nMODIFICAR EMPLEADO\n")
+                id_empleado = input("Ingrese el ID del empleado que desea modificar la informacion: ")
+                self.zoologico.modificar_datos_empleado(id_empleado= id_empleado)
             
-            elif opcion == "8":
-                print("\nMODIFIQUE LOS DATOS DE UN GUIA\n")
-                id_guia = input("Ingrese el ID del guia que desea modificar la informacion: ")
-                self.zoologico.modificar_datos_guia(id_guia=id_guia)
-
-
-            elif opcion == "9":
+            elif opcion == "7": #MODIFICAR DATOS DE VISITANTE
                 pass
 
-
-            elif opcion == "10":
+            elif opcion == "8":
                 print("MODIFICAR ANIMAL")
                 id_animal=input("Ingrese el ID del animal: ")
                 self.zoologico.modificar_datos_animal(id_animal=id_animal)
 
-
-
-            elif opcion == "11":
-                print("\nELIMINE UN VETERINARIO\n")
-                id_veterinario = str(input("Coloque el ID del veterinario que desea eliminar: "))
-                self.zoologico.eliminar_veterinario(id_veterinario=id_veterinario)
+            elif opcion == "9":
+                print("\nELIMINE UN EMPLEADO\n")
+                id_empleado = str(input("Coloque el ID del empleado que desea eliminar: "))
+                self.zoologico.eliminar_empleado(id_empleado= id_empleado)
             
-            elif opcion == "12":
-                print("\nELIMINE UN GUIA\n")
-                id_guia = str(input("Coloque el ID del guia que desea eliminar: "))
-                self.zoologico.eliminar_guia(id_guia=id_guia)
-
-            elif opcion == "13":
+            elif opcion == "10":
                 print("\nELIMINE UN VISITANTE\n")
                 id = str(input("Coloque el ID del VISITANTE que desea eliminar: "))
                 self.zoologico.eliminar_visitante(id=id)
 
-
-            elif opcion == "14":
-                print("Eliminar animal")
+            elif opcion == "11":
+                print("ELIMINAR UN ANIMAL")
                 id_animal=str(input("Ingrese el ID del animal a eliminar: "))
                 self.zoologico.eliminar_animal(id_animal=id_animal)                
 
-            elif opcion == "15":
-                self.zoologico.mostrar_veterinarios()
+            elif opcion == "12":
+                self.zoologico.mostrar_empleados()
             
-            elif opcion == "16":
-                self.zoologico.mostrar_guias()
-
-            elif opcion == "17":
+            elif opcion == "13":
                 self.zoologico.mostrar_visitantes()
 
-
-            elif opcion == "18":
+            elif opcion == "14": #MOSTRAR VISITAS
                 pass
 
-
-            elif opcion == "19":
+            elif opcion == "15":
                 self.zoologico.mostrar_animal()
 
-            
-            elif opcion == "20":
+            elif opcion == "16":
                 self.zoologico.mostrar_mantenimiento()
             
-            elif opcion == "21":
+            elif opcion == "17":
                 id_v_a= input("Ingresa id del visitante")
                 id_vt= input("Ingresa el id de la visita")
 
                 self.visita.ingresar_visitantes(id_v_a=id_v_a, id_vt=id_vt)
 
-          
-            elif opcion == "22":
+            elif opcion == "18":
                 print("Hasta luego\n")
                 break
