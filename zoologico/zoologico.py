@@ -21,6 +21,7 @@ class Zoologico():
     lista_visita: List[Visita]=[]
     lista_mantenimientos: List[Mantenimiento] = []
     
+    
     def registrar_visitante(self, visitante: Visitante):
         self.lista_visitantes.append(visitante)
         print("\nSe registro correctamente\n")
@@ -155,7 +156,9 @@ class Zoologico():
             print(animal.mostrar_info_animales())
 
     def mostrar_visitas(self):
-        pass
+        print("\n** VISITAS **\n")
+        for visita in self.lista_visita:
+            print(visita.mostrar_visita())
     
     def mostrar_mantenimiento(self):
         print("\n** MANTENIMIENTOS **\n")
@@ -200,6 +203,7 @@ class Zoologico():
                 print("\nSe registró correctamente\n")
             return 
         print("\nNo se encontró el empleado con el id: ",id)
+
 
     # def listar_visita(self):
     #     for visita in self.lista_visita:

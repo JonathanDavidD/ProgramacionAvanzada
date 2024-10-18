@@ -20,11 +20,12 @@ class Visita:
         self.id=id
 
     def mostrar_visita(self):
-        info=f"Dia de la visita: {self.dia_v}, Mes de la visita: {self.mes_v}, Año de la visita: {self.ano_v}, Visitante: {self.visitante_v}, Guia a cargo: {self.guia_a_cargo}"
+        info=f"Fecha de la visita: {self.fecha_visita}, Visitante: {self.visitante_v}, Guia a cargo: {self.guia_a_cargo}"
         return info
     
     def ingresar_visitantes(self, visitante):
-        self.visitante_v.append(visitante)
+            self.visitante_v.append(visitante)
+    
         
 
 

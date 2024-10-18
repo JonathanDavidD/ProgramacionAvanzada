@@ -13,6 +13,7 @@ from animales.animales import Animal
 class Menu:
     zoologico = Zoologico()
     
+    
         
     def mostrar_menu(self):
         while True:
@@ -138,13 +139,13 @@ class Menu:
 
             elif opcion == "5":
 
-                
-                dia_v=int(input("Ingrese dia de la visita"))
-                mes_v=int(input("Ingrese mes de la visita"))
-                ano_v=int(input("Ingrese año de la visita"))
+                print("\nINGRESE DATOS DE LA VISITA")
+                dia_v=int(input("Ingrese dia de la visita: "))
+                mes_v=int(input("Ingrese mes de la visita: "))
+                ano_v=int(input("Ingrese año de la visita: "))
                 fecha_visita = datetime(ano_v, mes_v, dia_v)
-                id_visitante = input("Ingresa el id del visitante")
-                guia_a_cargo=input("Ingrese el id del guia a cargo")
+                id_visitante = input("Ingresa el id del visitante: ")
+                guia_a_cargo=input("Ingrese el id del guia a cargo: ")
                 id=self.zoologico.generar_id_visita()
                 print(id)
                 
@@ -237,6 +238,7 @@ class Menu:
             elif opcion == "18": #MOSTRAR VISITAS
                 self.zoologico.mostrar_visitas()
 
+
             elif opcion == "19":
                 self.zoologico.mostrar_animal()
 
@@ -247,7 +249,7 @@ class Menu:
                 id_v_a= input("Ingresa id del visitante")
                 id_vt= input("Ingresa el id de la visita")
 
-                self.visita.ingresar_visitantes(id_v_a=id_v_a, id_vt=id_vt)
+                self.zoologico.registrar_visitante_a_visita(id_v_a=id_v_a, id_vt=id_vt)
 
             elif opcion == "22":
                 print("Hasta luego\n")
